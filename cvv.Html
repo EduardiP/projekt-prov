@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Krijoni CV-në Tuaj</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Krijoni CV-në Tuaj</h1>
+        <form id="cvForm">
+            <label for="name">Emri:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="experience">Përvoja:</label>
+            <textarea id="experience" required></textarea>
+
+            <button type="submit">Krijo CV</button>
+        </form>
+        <div id="cvOutput"></div>
+    </div>
+    
+    <script src="script.js">
+    document.getElementById('cvForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+ const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const experience = document.getElementById('experience').value;
+
+    const cvOutput = document.getElementById('cvOutput');
+    cvOutput.innerHTML = `
+        <h2>CV e Krijuar</h2>
+        <p><strong>Emri:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Përvoja:</strong> ${experience}</p>
+`;
+});
+
+    </script>
+</body>
+</html>
